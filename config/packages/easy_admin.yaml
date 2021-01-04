@@ -1,0 +1,23 @@
+easy_admin:
+    entities:
+        User:
+            class: App\Entity\User
+            password_encoding: { algorithm: 'bcrypt', cost: 12 }
+            form:
+                fields:
+                    # Fomulaire de création / modification d'un utilisateur
+                    - { property: 'email'}
+                    - { property: 'username'}
+
+                    # Ici on retrouve notre propriété plainPassword pour la modification du mot de passe 
+                    - { property: 'plainPassword', type: 'password', type_options: { required: true }}
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+    design:
+        menu:
+            - { route: 'home', label: 'Nouveau Utilisateur', icon: 'book' }
+            - { entity: 'User', label: 'Liste des utilisateurs', icon: 'user' }
+            
+
+    site_name: Les con
+
+        
