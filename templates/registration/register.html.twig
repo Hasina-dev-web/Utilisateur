@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/index.html.twig' %}
 
 {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
 {% block title %}Inscription{% endblock %}
 
-{% block body %}
-
+{% block content %}
+    <div class="content-wrapper">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 	</div>
-	
+	</div>
 <!--===============================================================================================-->
 	<script src="{{ asset('register/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
